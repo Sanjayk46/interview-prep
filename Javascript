@@ -1,0 +1,87 @@
+1.Debouncing :
+
+it is a javascript technique used to manage frequency of function execution in the particularly in  response to user event. by ensuring that a function only called  after  a certain period of inactivity, Debouncing  enhance the performance and imporve the user experience and reduce the server load
+
+2.Event propagation:
+
+when a user interact with in an event  (like click the button ) inside the div the event doesn't stay there it will move up or move down through the dom tree
+
+1.capture phase -  from top window to target
+
+2.target phase - event should  reach actual element
+
+3.bubbling phase - from target to backup  window
+
+3.throttling:
+
+ throttling means  limit a function to only run once  every x millieseconds, no matters how many times event fires
+
+
+
+event deligation:
+
+event deligation instead of adding event listeners to the children element you can add one common event listener to their common parent . and handle event based on the event.target
+
+example :
+
+list 
+
+event bubbling:
+
+it is a process of where an event starts from the  target element to bubbles up (moves up) to their ancestors (parent) up to the document to window 
+
+  
+
+avoid unnesscary rerendering:
+
+1.using usememo :
+
+What is it?
+
+useMemo memoizes the result of a function call and returns the cached result unless the dependencies change.
+
+It prevents re-calculating expensive functions on every render.
+
+Why use it?
+
+Optimizes performance when performing expensive calculations.
+
+Recomputes values only when dependencies change — not on every render.
+
+2.usecallback:
+
+useCallback: Memoizing Functions
+
+What is it?
+
+useCallback is similar to useMemo, but instead of memoizing values, it memoizes functions.
+
+It ensures that the function reference stays the same between renders unless the dependencies change.
+
+Why use it?
+
+Prevents re-creating functions on every render.
+
+Useful when passing functions as props to child components or when you’re dealing with event handlers.
+
+
+
+3. use memo to avoid for an expensive calculation
+
+4.split the Ui
+
+5.key props properly in list 
+
+6.avoid unnesscary function inside the jsx
+
+7.
+
+how to improve performance of the  react app
+ 
+
+how dom works?
+
+how the process of recolization and virutal dom
+
+useeffect → how can we destory unmount component
+ 

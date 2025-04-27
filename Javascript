@@ -214,7 +214,23 @@ Declarative Syntax: React’s declarative approach makes it easier to understand
 
 
 useeffect → how can we destory unmount component
- 
+   1.The cleanup function inside useEffect runs when the component unmounts or when dependencies change.
+
+  2.Use this cleanup function to remove side effects such as timers, event listeners, subscriptions, and network requests to prevent memory leaks and unexpected behavior.
+
+  3.In the case of network requests, you can use an AbortController to cancel an ongoing request when the component unmounts.
+
+  4.This cleanup approach is crucial for maintaining a performant and memory-efficient React app.
+
+
+
+
+
+
+
+
+
+
 
 
 lazy loading :

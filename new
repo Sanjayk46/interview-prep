@@ -1,0 +1,42 @@
+function maxprofit(n) {
+    const buildings = [
+        { time: 5, earning: 1500, label: "T" },
+        { time: 4, earning: 1000, label: "P" },
+        { time: 10, earning: 3000, label: "C" }
+    ];
+
+    const dp = Array(n + 1).fill(-Infinity);
+    const path = Array(n + 1).fill(null);
+    dp[0] = 0;
+
+    for (let time = 0; time <= n; time++) {
+        if (dp[time] !== -Infinity) {
+            for (let b of buildings) {
+                const nextTime = time + b.time;
+                if (nextTime <= n) {
+                    const developTime = n - nextTime; 
+                    const profit = dp[time] + (developTime > 0  ?  developTime * b.earning : 0)
+                    if (profit > dp[nextTime]) {
+                        dp[nextTime] = profit;
+                        path[nextTime] = (path[time] || []).concat(b.label);
+                    }
+                }
+            }
+        }
+    }
+
+    const maxEarning = Math.max(...dp);
+    const maxTime = dp.indexOf(maxEarning);
+    const sequence = path[maxTime] || [];
+
+    let count = { T: 0, P: 0, C: 0 };
+    sequence.forEach(label => count[label]++);
+
+    let result = `Earning : ${maxEarning}\nSolution:\nT:${count.T},P:${count.P},C:${count.C}`;
+    return result;
+}
+
+console.log(maxprofit(8));
+
+
+
